@@ -1,0 +1,16 @@
+*.DS_Store
+
+*.xcodeproj
+*.xconfig
+*.plist
+*.app
+
+*.qbs
+**qbs**
+
+*.exe
+
+**Debug**
+**libs**
+emptyExample
+obj
