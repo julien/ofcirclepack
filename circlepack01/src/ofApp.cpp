@@ -29,13 +29,13 @@ void ofApp::draw() {
         }
     }
 
-    for (int i = 0; i < circles.size(); i++) {
+    for (unsigned int i = 0; i < circles.size(); i++) {
         Circle *c = circles.at(i);
         if (c->growing) {
             if (c->edges()) {
                 c->growing = false;
             } else {
-                for (int j = 0; j < circles.size(); j++) {
+                for (unsigned int j = 0; j < circles.size(); j++) {
                     Circle *other = circles.at(j);
                     if (c != other) {
                         float d = ofDist(c->x, c->y, other->x, other->y);
@@ -58,7 +58,7 @@ Circle * ofApp::addCircle() {
 
     bool valid = true;
 
-    for (int i = 0; i < circles.size(); i++) {
+    for (unsigned int i = 0; i < circles.size(); i++) {
         Circle *c = circles.at(i);
         float d = ofDist(x, y, c->x, c->y);
         if (d < c->r + c->r) {
@@ -76,7 +76,7 @@ Circle * ofApp::addCircle() {
 
 void ofApp::windowResized(int w, int h) {
 
-    for (int i = 0; i < circles.size(); i++) {
+    for (unsigned int i = 0; i < circles.size(); i++) {
         circles.erase(circles.begin() + i);
     }
 }
