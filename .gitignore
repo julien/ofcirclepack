@@ -1,7 +1,8 @@
 *.DS_Store
 
 *.xcodeproj
-*.xconfig
+**xconfig**
+*xcconfig
 *.plist
 *.app
 
