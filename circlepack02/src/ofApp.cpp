@@ -34,7 +34,7 @@ void ofApp::draw() {
 }
 
 void ofApp::windowResized(int w, int h) {
-    for (int i = 0; i < circles.size(); i++) {
+    for (unsigned int i = 0; i < circles.size(); i++) {
         circles.erase(circles.begin() + i);
     }
 }
@@ -52,7 +52,7 @@ Circle * ofApp::addCircle() {
 void ofApp::drawCircles() {
     ofSetColor(ofColor::white);
 
-    for (int i = 0; i < circles.size(); i++) {
+    for (unsigned int i = 0; i < circles.size(); i++) {
         Circle *c = circles.at(i);
 
         // larger circles won't be drawn
@@ -74,7 +74,7 @@ bool ofApp::isValid(Circle *c) {
         return false;
     }
 
-    for (int i = 0; i < circles.size(); i++) {
+    for (unsigned int i = 0; i < circles.size(); i++) {
         Circle *c2 = circles.at(i);
         float d = ofDist(c2->x, c2->y, c->x, c->y);
         if (d < c2->r + c->r) {
