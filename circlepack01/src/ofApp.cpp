@@ -4,7 +4,7 @@ void ofApp::setup() {}
 
 void ofApp::update() {
 
-    int total = 10;
+    int total = 10; //
     int count = 0;
     int attempts = 0;
 
@@ -63,7 +63,7 @@ Circle * ofApp::addCircle() {
         Circle *c = circles.at(i);
 
         float d = ofDist(x, y, c->x, c->y);
-        if (d < c->r) {
+        if (d < c->r + 2) {
             valid = false;
             break;
         }
