@@ -9,8 +9,11 @@ public:
     float y;
     float r;
     bool growing;
+    int lineWidth;
 
-    Circle(float x, float y) : x(x), y(y), r(ofRandom(1, 3)), growing(true) {}
+    Circle(float x, float y) : x(x), y(y), r(ofRandom(1, 3)), growing(true) {
+        lineWidth = r > 1 ? (int) ofRandom(1, 3) : 1;
+    }
 
     bool edges() {
         float w = (float) ofGetWidth();
@@ -20,14 +23,15 @@ public:
 
     void grow() {
         if (growing) {
-            r += 1;
+            r += ofRandom(0.5, 1.0);
         }
     }
 
     void draw() {
         ofNoFill();
         ofSetColor(ofColor::white);
-        ofSetLineWidth(2);
+
+        ofSetLineWidth(lineWidth);
         ofDrawCircle(x, y, r);
     }
 };
