@@ -1,12 +1,8 @@
 #include "ofApp.h"
 
-void ofApp::setup() {
+void ofApp::setup() {}
 
-}
-
-void ofApp::update() {
-
-}
+void ofApp::update() {}
 
 void ofApp::draw() {
     ofSetBackgroundColor(ofColor::black);
@@ -39,7 +35,7 @@ void ofApp::draw() {
                     Circle *other = circles.at(j);
                     if (c != other) {
                         float d = ofDist(c->x, c->y, other->x, other->y);
-                        if (d < c->r + other->r) {
+                        if (d - 4 < c->r + other->r) {
                             c->growing = false;
                             break;
                         }
@@ -61,7 +57,7 @@ Circle * ofApp::addCircle() {
     for (unsigned int i = 0; i < circles.size(); i++) {
         Circle *c = circles.at(i);
         float d = ofDist(x, y, c->x, c->y);
-        if (d < c->r + c->r) {
+        if (d < c->r) {
             valid = false;
             break;
         }
@@ -75,7 +71,6 @@ Circle * ofApp::addCircle() {
 }
 
 void ofApp::windowResized(int w, int h) {
-
     for (unsigned int i = 0; i < circles.size(); i++) {
         circles.erase(circles.begin() + i);
     }

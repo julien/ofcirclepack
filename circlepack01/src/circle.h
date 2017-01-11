@@ -27,7 +27,8 @@ public:
     void draw() {
         ofNoFill();
         ofSetColor(ofColor::white);
-        ofDrawCircle(x, y, r * 2);
+        ofSetLineWidth(2);
+        ofDrawCircle(x, y, r);
     }
 };
 
