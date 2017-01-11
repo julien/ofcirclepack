@@ -4,8 +4,8 @@
 int main( ){
 
     ofGLFWWindowSettings settings;
-    settings.width = 1024;
-    settings.height = 768;
+    settings.width = 800;
+    settings.height = 600;
     settings.title = " ";
     ofCreateWindow(settings);
 

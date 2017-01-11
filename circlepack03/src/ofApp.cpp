@@ -5,8 +5,8 @@ void ofApp::setup() {
     img.load("2017.png");
 
     ofPixels &pixels = img.getPixels();
-    int w = ofGetWidth();
-    int h = ofGetHeight();
+    int w = img.getWidth();
+    int h = img.getHeight();
 
     for (int x = 0; x < w; x++) {
         for (int y = 0; y < h; y++) {
