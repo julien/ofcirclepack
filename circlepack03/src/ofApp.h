@@ -8,9 +8,9 @@ public:
     void setup();
     void update();
     void draw();
-    void windowResized(int w, int h);
 
-    unsigned const MAX_ATTEMPTS = 100;
+    unsigned const MAX_ATTEMPTS = 50;
+    unsigned const MAX_CIRCLES = 5000;
     vector<Circle*> circles;
     Circle * addCircle();
     ofImage img;

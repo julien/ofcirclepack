@@ -3,18 +3,22 @@
 void ofApp::setup() {
 
     img.load("2017.png");
+    img.draw(0, 0);
 
-    ofPixels &pixels = img.getPixels();
+    // ofPixels &pixels = img.getPixels(); // NO!!!
+
     int w = img.getWidth();
     int h = img.getHeight();
 
+
     for (int x = 0; x < w; x++) {
         for (int y = 0; y < h; y++) {
-            int i = x + y * w;
-            int b = pixels[i];
-            // std::cout << b << std::endl;
-            if (b > 254) {
+            // int i = x + y * w;
+            // int b = pixels[y * w + x]; // NO!!!
+            ofColor c = img.getColor(x, y);
+            if (c.r > 200 && c.g > 200 && c.b > 200) {
                 points.push_back(ofVec2f(x, y));
+
             }
         }
     }
@@ -22,9 +26,13 @@ void ofApp::setup() {
 
 void ofApp::update() {
 
-    int total = 10; // (int) ofRandom(3, 10);
+    int total = (int) ofRandom(10, 30);
     int count = 0;
     int attempts = 0;
+
+    if (circles.size() > MAX_CIRCLES) {
+        return;
+    }
 
     while (count < total) {
         Circle *c = addCircle();
@@ -35,10 +43,10 @@ void ofApp::update() {
 
         attempts++;
         if (attempts > MAX_ATTEMPTS) {
-            count = total;
             break;
         }
     }
+
 
 }
 
@@ -73,13 +81,10 @@ void ofApp::draw() {
 
 Circle * ofApp::addCircle() {
     int r = int(ofRandom(0, points.size()));
-    // std::cout << r << std::endl;
 
     ofVec2f point = points.at(r);
     float x = point.x;
     float y = point.y;
-
-
 
     bool valid = true;
 
@@ -87,7 +92,7 @@ Circle * ofApp::addCircle() {
         Circle *c = circles.at(i);
 
         float d = ofDist(x, y, c->x, c->y);
-        if (d < c->r + 2) {
+        if (d < c->r - 2) {
             valid = false;
             break;
         }
@@ -100,8 +105,3 @@ Circle * ofApp::addCircle() {
     }
 }
 
-void ofApp::windowResized(int w, int h) {
-    for (unsigned int i = 0; i < circles.size(); i++) {
-        circles.erase(circles.begin() + i);
-    }
-}
