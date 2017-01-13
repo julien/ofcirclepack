@@ -1,9 +1,8 @@
 #include "ofApp.h"
 
 void ofApp::setup() {
-
     img.load("kitten.jpg");
-    img.draw(0, 0);
+    saveScreen = false;
 
     int w = img.getWidth();
     int h = img.getHeight();
@@ -19,7 +18,7 @@ void ofApp::setup() {
 
 void ofApp::update() {
 
-    int total = (int) ofRandom(40, 100);
+    int total = (int) ofRandom(10, 100);
     int count = 0;
     int attempts = 0;
 
@@ -47,9 +46,7 @@ void ofApp::draw() {
     ofSetBackgroundColor(ofColor::black);
 
     for (unsigned int i = 0; i < circles.size(); i++) {
-
         Circle *c = circles.at(i);
-
         if (c->growing) {
             if (c->edges()) {
                 c->growing = false;
@@ -69,6 +66,17 @@ void ofApp::draw() {
         }
         c->grow();
         c->draw();
+    }
+
+    if (saveScreen) {
+        ofSaveScreen(ofToString(ofGetFrameNum())+".gif");
+        saveScreen = false;
+    }
+}
+
+void ofApp::keyPressed(int key) {
+    if (key == 's') {
+        saveScreen = true;
     }
 }
 

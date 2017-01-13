@@ -9,11 +9,13 @@ public:
     void setup();
     void update();
     void draw();
+    void keyPressed(int key);
 
-    unsigned const MAX_ATTEMPTS = 50;
+    const int MAX_ATTEMPTS = 50;
     unsigned const MAX_CIRCLES = 20000;
     vector<Circle*> circles;
     Circle * addCircle();
     ofImage img;
     vector<vec> points;
+    bool saveScreen;
 };

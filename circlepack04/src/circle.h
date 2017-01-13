@@ -7,8 +7,8 @@ class Circle {
 public:
     float x;
     float y;
+    ofColor c;
     float r;
-    ofColor c; // COLOR
     bool growing;
     int lineWidth;
 
