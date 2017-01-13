@@ -24,7 +24,7 @@ public:
 
     void grow() {
         if (growing) {
-            r += ofRandom(0.5, 1.0);
+            r += ofRandom(0.5, 2.0);
         }
     }
 

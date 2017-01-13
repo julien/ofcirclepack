@@ -31,6 +31,15 @@ void ofApp::update() {
 void ofApp::draw() {
     ofSetBackgroundColor(ofColor::black);
     drawCircles();
+
+    if (saveScreen) {
+        ofSaveScreen(ofToString(ofGetFrameNum()) + ".gif");
+        saveScreen = false;
+    }
+}
+
+void ofApp::keyPressed(int key) {
+    if (key == 's') saveScreen = true;
 }
 
 void ofApp::windowResized(int w, int h) {

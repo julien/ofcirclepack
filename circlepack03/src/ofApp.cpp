@@ -77,6 +77,15 @@ void ofApp::draw() {
         c->grow();
         c->draw();
     }
+
+    if (saveScreen) {
+        ofSaveScreen(ofToString(ofGetFrameNum()) + ".gif");
+        saveScreen = false;
+    }
+}
+
+void ofApp::keyPressed(int key) {
+    if (key == 's') saveScreen = true;
 }
 
 Circle * ofApp::addCircle() {

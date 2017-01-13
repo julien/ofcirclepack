@@ -9,8 +9,10 @@ public:
     void update();
     void draw();
     void windowResized(int w, int h);
+    void keyPressed(int key);
 
-    unsigned const MAX_ATTEMPTS = 100;
+    const int MAX_ATTEMPTS = 100;
     vector<Circle*> circles;
     Circle * addCircle();
+    bool saveScreen;
 };

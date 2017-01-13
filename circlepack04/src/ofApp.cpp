@@ -69,7 +69,7 @@ void ofApp::draw() {
     }
 
     if (saveScreen) {
-        ofSaveScreen(ofToString(ofGetFrameNum())+".gif");
+        ofSaveScreen(ofToString(ofGetFrameNum()) + ".gif");
         saveScreen = false;
     }
 }
