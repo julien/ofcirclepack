@@ -11,7 +11,9 @@
 
 *.exe
 
+**bin**
 **Debug**
+**_debug**
 **libs**
 emptyExample
 obj
